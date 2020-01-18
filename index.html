@@ -1,74 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foodcast</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Times+New+Roman|Helvetica&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> 5 dayfood Cast !</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-
 </head>
+
 <header>
-    <section class="hero">
-        <div class="hero-body" id="header">
-            <div class="container">
-                <h1 class="title" id="Foodcast">
-                    5 Day Foodcast
-                </h1>
-                <div class="level-left">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <input class="input" type="text" placeholder="Enter Search Term"> </p>
-                        <p class="control">
-                            <button class="button">
-                                Search
-                            </button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- <div class="container-fluid">
-        5 Day Foodcast<i class="fas fa-cloud-sun"></i>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-            </div>
-    </div>
-    </nav> -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+        </div>
+    </nav>
 </header>
-
-<body>
-    <div class="col-12 col-md-2 col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="city"></div>
-                <div class="currentDay"></div>
-                <div class="description"></div>
-                <div class="humidity"></div>
-                <div class="temp"></div>
-                <div class="wind"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-2 col-sm-6">
-                <div class="card">
-                    <div class="card-body" id="city-results">
-                    </div>
-                    <div class="card-body" id="fiveDay-results"></div>
-                </div>
-            </div>
-        </div>
+<section class="hero is-dark">
+    <div class="container">
+        <h1 class="title">FoodCast Dashboard</h1>
+        <h2 class="subtitle">View your 5 day Food Cast</h2>
     </div>
+    </div>
+    <div class="field has-addons">
+        <div class="control">
+            <input class="input" id="searchinput" type="text" placeholder="Search for a City">
+        </div>
+        <div class="control">
+            <a class="button is-info" id="search">Search</a>
+        </div>
+</section>
+<main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://www.jsdelivr.com/package/npm/bulma"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="assets/js/script.js"></script>
-</body>
+    <div class="columns">
+        <div class="column is-full" id="main">
+            <h3 class="card-header" id="forcast"></h3>
+            <p id="header"></p>
+            <span class="border-0" id="Day"></span>
+            <div class="card-content" id="searchResponse">
+            </div>
+        </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+<script src="assets/js/script.js"></script>
 
 </html>
