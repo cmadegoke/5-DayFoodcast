@@ -1,19 +1,12 @@
-// var searchForm = document.querySelector("#searchform");
 var searchInput = document.querySelector('#searchinput');
-// var clearbtn = document.querySelector("#clearButton");
 var searchResults = document.querySelector("#searchResponse");
 var Searchbtn = document.querySelector("#search");
 var parent = document.getElementById('forcast');
-// var hiderow = document.getElementById('hiderow');
-// console.log(Searchbtn)
-// function prelist(event){
-//     console.log (searchInput.value)
-// }
+
 function handleformsubmit(event) {
     event.preventDefault();
     console.log(searchInput.value)
     removeoldforecast();
-    //forecastList();
     var cityID = searchInput.value;
     if (!cityID) {
         return false
@@ -24,7 +17,6 @@ function removeoldforecast() {
     Array.from(parent.children).forEach(child => { parent.removeChild(child) });
 }
 Searchbtn.addEventListener("click", handleformsubmit);
-//clearbtn.addEventListener("click", handleclearclick);
 function runData(cityID) {
     var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial" + "&APPID=e37e1b254dd810c3870001c45995ed30"
     $.ajax({
