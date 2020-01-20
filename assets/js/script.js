@@ -15,6 +15,7 @@ function handleformsubmit(event) {
     event.preventDefault();
     console.log(searchInput.value)
     removeoldforecast();
+    removeoldfoodcast();
     //forecastList();
     var cityID = searchInput.value;
     if (!cityID) {
@@ -26,53 +27,72 @@ function handleformsubmit(event) {
 function removeoldforecast() {
     Array.from(parent.children).forEach(child => { parent.removeChild(child) });
 }
+function removeoldfoodcast() {
+    Array.from(parent1.children).forEach(child => { parent1.removeChild(child) });
+}
 Searchbtn.addEventListener("click", handleformsubmit);
 //clearbtn.addEventListener("click", handleclearclick);
 function runData(cityID) {
-    var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial" + "&APPID=e37e1b254dd810c3870001c45995ed30"
+    var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial&APPID=e37e1b254dd810c3870001c45995ed30"
     $.ajax({
         url: queryUrl,
         method: 'GET',
         origin: '*',
     })
         .then(function (weatherRES) {
-            console.log(weatherRES);
+            console.log(weatherRES.list[0].weather[0]);
             var dayOne = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[0].dt_txt,
                 IconImage: weatherRES.list[0].weather[0].icon,
                 Temp: weatherRES.list[0].main.temp,
+                food: weatherRES.list[0].weather[0].description,
             };
             var dayTwo = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[8].dt_txt,
                 IconImage: weatherRES.list[8].weather[0].icon,
                 Temp: weatherRES.list[8].main.temp,
+                food: weatherRES.list[0].weather[0].description,
             };
             var dayThree = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[16].dt_txt,
                 IconImage: weatherRES.list[16].weather[0].icon,
                 Temp: weatherRES.list[16].main.temp,
+                food: weatherRES.list[0].weather[0].description,
             };
             var dayFour = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[24].dt_txt,
                 IconImage: weatherRES.list[24].weather[0].icon,
                 Temp: weatherRES.list[24].main.temp,
+                food: weatherRES.list[0].weather[0].description,
             };
             var dayFive = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[32].dt_txt,
                 IconImage: weatherRES.list[32].weather[0].icon,
                 Temp: weatherRES.list[32].main.temp,
+                food: weatherRES.list[0].weather[0].description,
             };
             var forecast = [dayOne, dayTwo, dayThree, dayFour, dayFive];
+            console.log(dayFive.food)
+            let mapping = {
+                'clear sky': 'American',
+                'light rain': 'chinese',
+                'overcast clouds': 'italian',
+                'light snow': 'japanese',
+                snow: 'Mexican',
+                'scattered clouds': 'Caribbean',
+                'broken clouds': 'Cajun',
+            }
             searchResults(forecast)
-            food()
+            console.log(dayOne.food)
+            food(mapping[dayOne.food])
         });
-    function food() {
-        var queryUrl = "https://api.spoonacular.com/recipes/search?cuisine=American&apiKey=dca66fb5322341b49c535563addea129"
+    function food(foodType = 'Chinese') {
+        var queryUrl = "https://api.spoonacular.com/recipes/search?cuisine=" + foodType + "&apiKey=dca66fb5322341b49c535563addea129"
         $.ajax({
             url: queryUrl,
             method: 'GET',
@@ -80,30 +100,40 @@ function runData(cityID) {
         })
             .then(function (searchResults) {
                 console.log(searchResults);
+                let index = Math.floor(Math.random() * searchResults.results.length)
                 var mon = {
-                    FoodPic: searchResults.results[0].image,
-                    PrepTime: searchResults.results[0].readyInMinutes,
-                    Servings: searchResults.results[0].servings,
+                    FoodPic: searchResults.results[index].image,
+                    PrepTime: searchResults.results[index].readyInMinutes,
+                    Servings: searchResults.results[index].servings,
+                    description: searchResults.results[index].title,
                 };
+                index = Math.floor(Math.random() * searchResults.results.length)
                 var tue = {
-                    FoodPic: searchResults.results[2].image,
-                    PrepTime: searchResults.results[2].readyInMinutes,
-                    Servings: searchResults.results[2].servings,
+                    FoodPic: searchResults.results[index].image,
+                    PrepTime: searchResults.results[index].readyInMinutes,
+                    Servings: searchResults.results[index].servings,
+                    description: searchResults.results[index].title,
                 };
+                index = Math.floor(Math.random() * searchResults.results.length)
                 var wed = {
-                    FoodPic: searchResults.results[1].image,
-                    PrepTime: searchResults.results[1].readyInMinutes,
-                    Servings: searchResults.results[1].servings,
+                    FoodPic: searchResults.results[index].image,
+                    PrepTime: searchResults.results[index].readyInMinutes,
+                    Servings: searchResults.results[index].servings,
+                    description: searchResults.results[index].title,
                 };
+                index = Math.floor(Math.random() * searchResults.results.length)
                 var thu = {
-                    FoodPic: searchResults.results[5].image,
-                    PrepTime: searchResults.results[5].readyInMinutes,
-                    Servings: searchResults.results[5].servings,
+                    FoodPic: searchResults.results[index].image,
+                    PrepTime: searchResults.results[index].readyInMinutes,
+                    Servings: searchResults.results[index].servings,
+                    description: searchResults.results[index].title,
                 };
+                index = Math.floor(Math.random() * searchResults.results.length)
                 var fri = {
-                    FoodPic: searchResults.results[8].image,
-                    PrepTime: searchResults.results[8].readyInMinutes,
-                    Servings: searchResults.results[8].servings,
+                    FoodPic: searchResults.results[index].image,
+                    PrepTime: searchResults.results[index].readyInMinutes,
+                    Servings: searchResults.results[index].servings,
+                    description: searchResults.results[index].title,
                 };
                 var foodday = [mon, tue, wed, thu, fri];
                 console.log(foodday);
@@ -140,15 +170,16 @@ function runData(cityID) {
             //pic.innerHTML = foodday[i].FoodPic
             pic.setAttribute('alt', foodday[i].FoodPic);
             pic.setAttribute('src', 'https://spoonacular.com/recipeImages/' + imgName);
-            // pic.setAttribute('src',  'https://spoonacular.com/recipeImages/579247-556x370.jpg(38 kB)
-            https://spoonacular.com/recipeImages/579247-556x370.jpg');
             var time = document.createElement('div');
             time.innerHTML = 'Prep Time: ' + foodday[i].PrepTime + "mins"
             var serving = document.createElement('div');
             serving.innerHTML = 'Servings: ' + foodday[i].Servings + "people"
+            // var des = document.createElement('div');
+            // des.innerHTML = foodday[i].title;
             card.appendChild(pic);
             card.appendChild(time);
             card.appendChild(serving);
+            // card.appendChild (des);
             parent1.appendChild(card);
         }
     }
