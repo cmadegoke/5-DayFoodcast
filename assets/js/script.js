@@ -6,22 +6,18 @@ var Searchbtn = document.querySelector("#search");
 var foodR = document.getElementById('foodResponse');
 var parent1 = document.getElementById('foodday');
 var parent = document.getElementById('forcast');
-// var hiderow = document.getElementById('hiderow');
-// console.log(Searchbtn)
-// function prelist(event){
-//     console.log (searchInput.value)
-// }
+
 function handleformsubmit(event) {
     event.preventDefault();
     console.log(searchInput.value)
     removeoldforecast();
     removeoldfoodcast();
-    //forecastList();
+
     var cityID = searchInput.value;
     if (!cityID) {
         return false;
     }
-    // cityID = food();
+
     runData(cityID);
 }
 function removeoldforecast() {
@@ -31,7 +27,7 @@ function removeoldfoodcast() {
     Array.from(parent1.children).forEach(child => { parent1.removeChild(child) });
 }
 Searchbtn.addEventListener("click", handleformsubmit);
-//clearbtn.addEventListener("click", handleclearclick);
+
 function runData(cityID) {
     var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial&APPID=e37e1b254dd810c3870001c45995ed30"
     $.ajax({
@@ -83,7 +79,7 @@ function runData(cityID) {
                 'light rain': 'chinese',
                 'overcast clouds': 'italian',
                 'light snow': 'japanese',
-                snow: 'Mexican',
+                'snow': 'Mexican',
                 'scattered clouds': 'Caribbean',
                 'broken clouds': 'Cajun',
             }
@@ -164,22 +160,19 @@ function runData(cityID) {
         for (var i = 0; i < foodday.length; i++) {
             var card = document.createElement('div');
             card.classList.add('column');
-            // var pic = document.createElement('div');
             var pic = document.createElement('img');
-            var imgName = foodday[i].FoodPic;// + '-556x370.jpg';
-            //pic.innerHTML = foodday[i].FoodPic
+            var imgName = foodday[i].FoodPic;
             pic.setAttribute('alt', foodday[i].FoodPic);
             pic.setAttribute('src', 'https://spoonacular.com/recipeImages/' + imgName);
             var time = document.createElement('div');
             time.innerHTML = 'Prep Time: ' + foodday[i].PrepTime + "mins"
             var serving = document.createElement('div');
             serving.innerHTML = 'Servings: ' + foodday[i].Servings + "people"
-            // var des = document.createElement('div');
-            // des.innerHTML = foodday[i].title;
+
             card.appendChild(pic);
             card.appendChild(time);
             card.appendChild(serving);
-            // card.appendChild (des);
+
             parent1.appendChild(card);
         }
     }
