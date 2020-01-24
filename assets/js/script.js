@@ -49,28 +49,24 @@ function runData(cityID) {
                 Datenanme: weatherRES.list[8].dt_txt,
                 IconImage: weatherRES.list[8].weather[0].icon,
                 Temp: weatherRES.list[8].main.temp,
-                food: weatherRES.list[0].weather[0].description,
             };
             var dayThree = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[16].dt_txt,
                 IconImage: weatherRES.list[16].weather[0].icon,
                 Temp: weatherRES.list[16].main.temp,
-                food: weatherRES.list[0].weather[0].description,
             };
             var dayFour = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[24].dt_txt,
                 IconImage: weatherRES.list[24].weather[0].icon,
                 Temp: weatherRES.list[24].main.temp,
-                food: weatherRES.list[0].weather[0].description,
             };
             var dayFive = {
                 cityname: weatherRES.city.name,
                 Datenanme: weatherRES.list[32].dt_txt,
                 IconImage: weatherRES.list[32].weather[0].icon,
                 Temp: weatherRES.list[32].main.temp,
-                food: weatherRES.list[0].weather[0].description,
             };
             var forecast = [dayOne, dayTwo, dayThree, dayFour, dayFive];
             console.log(dayFive.food)
