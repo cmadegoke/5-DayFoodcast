@@ -29,7 +29,7 @@ function removeoldfoodcast() {
 Searchbtn.addEventListener("click", handleformsubmit);
 
 function runData(cityID) {
-    var queryUrl = 'http://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial&APPID=e37e1b254dd810c3870001c45995ed30"
+    var queryUrl = 'https://api.openweathermap.org/data/2.5/forecast/?q=' + cityID + "&units=imperial&APPID=e37e1b254dd810c3870001c45995ed30"
     $.ajax({
         url: queryUrl,
         method: 'GET',
