@@ -88,7 +88,7 @@ function runData(cityID) {
             food(mapping[dayOne.food])
         });
     function food(foodType = 'Chinese') {
-        var queryUrl = "https://api.spoonacular.com/recipes/search?cuisine=" + foodType + "&apiKey=dca66fb5322341b49c535563addea129"
+        var queryUrl = "https://api.spoonacular.com/recipes/search?cuisine=" + foodType + "&apiKey=dca66fb5322341b49c535563addea129&number=100"
         $.ajax({
             url: queryUrl,
             method: 'GET',
@@ -168,10 +168,15 @@ function runData(cityID) {
             time.innerHTML = 'Prep Time: ' + foodday[i].PrepTime + "mins"
             var serving = document.createElement('div');
             serving.innerHTML = 'Servings: ' + foodday[i].Servings + "people"
+            var des = document.createElement('div');
+            des.innerHTML = 'Title:' + foodday[i].description;
+            console.log(foodday[i])
 
             card.appendChild(pic);
+            card.appendChild(des);
             card.appendChild(time);
             card.appendChild(serving);
+            
 
             parent1.appendChild(card);
         }

@@ -11,3 +11,4 @@ As the project evolved we changed it from the weather affecting what people ate 
 Where the whether for the week could determine what type of meals to be had that week (american cuisine, chinese cuisine, italian cuisine, etc.) so that by looking at Foodcast they could go forward from there. <lb>
 Choosing ingredients to shop for based on what the foodcast predicts for that week. <lb>
 We worked on our CSS last, making sure our website worked before designing it.<lb>
+The API works when searching US CITIES!

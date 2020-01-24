@@ -4,12 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> FoodCast</title>
+    <title>  Foodcast </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-
 <header>
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -17,8 +16,10 @@
     </nav>
 </header>
 <section class="hero is-dark">
+    
     <div class="container">
-        <h1 class="title">5 Day FoodCast</h1>
+        <h1 class="title">FoodCast Dashboard</h1>
+        <h2 class="subtitle">View your 5 day Food Cast</h2>
     </div>
     </div>
     <div class="field has-addons">
@@ -29,8 +30,9 @@
             <a class="button is-info" id="search">Search</a>
         </div>
 </section>
-<main>
 
+<main>
+    <div class="sky">
     <div class="columns">
         <div class="column is-full" id="main">
             <h3 class="card-header" id="forcast"></h3>
@@ -39,16 +41,19 @@
             <div class="card-content" id="searchResponse">
             </div>
         </div>
-        <div class="columns">
-            <div class="column is-full" id="foodResponse">
-                <h3 class="card-header" id="foodday"></h3>
-                <h3 class="card-content" id="Day1"></h3>
-            </div>
+    </div>
+    <div class="columns">
+        <div class="column is-full" id="foodResponse">
+            <h3 class="card-header" id="foodday"></h3>
+            <h3 class="card-content" id="Day1"></h3>
         </div>
+    </div>
+</div>
 
 </main>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://www.jsdelivr.com/package/npm/bulma"></script>
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+<script src="https://www.jsdelivr.com/package/npm/bulma">
+</script>
 <script src="assets/js/script.js"></script>
 
 </html>
